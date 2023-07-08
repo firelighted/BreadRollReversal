@@ -22,7 +22,7 @@ text = "baker"
 [node name="Hands" type="Node2D" parent="."]
 position = Vector2(0, -20)
 
-[node name="Enemy" type="Area2D" parent="." groups=["bread"]]
+[node name="Enemy" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 6
 

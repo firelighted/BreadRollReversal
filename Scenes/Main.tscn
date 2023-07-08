@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1fej2wdjqple"]
+[gd_scene load_steps=10 format=3 uid="uid://c1fej2wdjqple"]
 
+[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_m1eyn"]
 [ext_resource type="PackedScene" uid="uid://px2ltqu06jxu" path="res://Scenes/player.tscn" id="2_0p75x"]
 [ext_resource type="PackedScene" uid="uid://bb56aoq13b8n5" path="res://Scenes/bread.tscn" id="3_fe3x7"]
 [ext_resource type="TileSet" uid="uid://c3s21jqcofd5w" path="res://Tiles/InteriorTileset.tres" id="3_uwdll"]
@@ -19,6 +20,7 @@ _data = {
 point_count = 20
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_m1eyn")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_0p75x")]
 
@@ -205,6 +207,29 @@ scale = Vector2(3, 3)
 text = "YOU GOT CAUGHT"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="WinText" type="Label" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 52.0
+offset_top = 112.0
+offset_right = 350.0
+offset_bottom = 228.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+text = "YOU GOT CAUGHT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DoughCountText" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 9.0
+offset_right = 538.0
+offset_bottom = 45.0
+text = "x/x Dough"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
