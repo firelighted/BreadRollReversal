@@ -144,35 +144,27 @@ position = Vector2(244, 180)
 
 [node name="Bread2" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(210, 112)
-is_dough = true
 
 [node name="Bread3" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(518, 116)
-is_dough = true
 
 [node name="Bread5" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(261, 114)
-is_dough = true
 
 [node name="Bread6" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(740, 174)
-is_dough = true
 
 [node name="Bread7" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(514, 535)
-is_dough = true
 
 [node name="Bread8" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(357, 536)
-is_dough = true
 
 [node name="Bread9" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(366, 182)
-is_dough = true
 
 [node name="Bread10" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(884, 530)
-is_dough = true
 
 [node name="Bread4" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(669, 175)
