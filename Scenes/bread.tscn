@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb56aoq13b8n5"]
+[gd_scene load_steps=5 format=3 uid="uid://bb56aoq13b8n5"]
 
 [ext_resource type="Script" path="res://Scenes/bread.gd" id="1_6dqlt"]
-[ext_resource type="Texture2D" uid="uid://bsdws5cjxhhn7" path="res://Art/Circle.png" id="1_hiobs"]
+[ext_resource type="Texture2D" uid="uid://djgr4et3j0ojk" path="res://Art/Bread.png" id="2_cm7ie"]
+[ext_resource type="Texture2D" uid="uid://dpr0sbcv4b5gg" path="res://Art/Dough.png" id="2_t50u6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_si73w"]
 radius = 32.0156
@@ -11,6 +12,8 @@ y_sort_enabled = true
 collision_layer = 2
 collision_mask = 12
 script = ExtResource("1_6dqlt")
+dough_sprite = ExtResource("2_t50u6")
+bread_sprite = ExtResource("2_cm7ie")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_si73w")
@@ -18,7 +21,8 @@ shape = SubResource("CircleShape2D_si73w")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_as_relative = false
 y_sort_enabled = true
-texture = ExtResource("1_hiobs")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_cm7ie")
 
 [node name="BakeUnbakeTimer" type="Timer" parent="."]
 wait_time = 0.5

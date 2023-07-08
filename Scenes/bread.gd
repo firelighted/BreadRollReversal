@@ -5,6 +5,9 @@ extends Area2D
 @export var in_oven = false
 @export var baker_can_interact = true
 
+@export var dough_sprite : Texture2D
+@export var bread_sprite : Texture2D
+
 
 func _ready():
 	if is_dough:
@@ -21,13 +24,15 @@ func _on_body_entered(body):
 
 func turn_to_dough():
 	is_dough = true
-	$Sprite2D.modulate = Color(0,0,1)
+	$Sprite2D.texture = dough_sprite
+	#$Sprite2D.modulate = Color(1,1,1)
 	if in_oven:
 		$BakeUnbakeTimer.start()
 
 func turn_to_bread():
 	is_dough = false
-	$Sprite2D.modulate = Color(1,1,0)
+	$Sprite2D.texture = bread_sprite
+	#$Sprite2D.modulate = Color(0,0,0)
 
 
 func put_on_counter():
