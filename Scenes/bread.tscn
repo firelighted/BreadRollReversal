@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb56aoq13b8n5"]
+
+[ext_resource type="Script" path="res://Scenes/bread.gd" id="1_6dqlt"]
+[ext_resource type="Texture2D" uid="uid://bsdws5cjxhhn7" path="res://Art/Circle.png" id="1_hiobs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_si73w"]
+radius = 32.0156
+
+[node name="Bread" type="Area2D"]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_6dqlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_si73w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+texture = ExtResource("1_hiobs")
+
+[node name="BakeUnbakeTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="InteractCooldownTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="BakeUnbakeTimer" to="." method="_on_bake_unbake_timer_timeout"]
+[connection signal="timeout" from="InteractCooldownTimer" to="." method="_on_interact_cooldown_timer_timeout"]

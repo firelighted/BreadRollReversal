@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8ixw1juy1ndo"]
+
+[ext_resource type="Texture2D" uid="uid://bsdws5cjxhhn7" path="res://Art/Circle.png" id="1_3gpq6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_si73w"]
+radius = 24.0208
+
+[node name="Oven" type="Area2D" groups=["oven"]]
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 8
+
+[node name="Pan" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_si73w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.670588, 0, 0.0901961, 0.592157)
+y_sort_enabled = true
+texture = ExtResource("1_3gpq6")

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5h3qyvyrnson"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy.gd" id="1_dcpy5"]
+[ext_resource type="Texture2D" uid="uid://bsdws5cjxhhn7" path="res://Art/Circle.png" id="2_6jyht"]
+[ext_resource type="Texture2D" uid="uid://ivx1m2cgs3ry" path="res://Art/PieSlice.png" id="3_x0sxq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_61th3"]
+radius = 62.12
+
+[node name="Baker" type="PathFollow2D"]
+position = Vector2(74, 60)
+rotation = 0.0515267
+script = ExtResource("1_dcpy5")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -15.8682
+offset_top = -48.0807
+offset_right = 29.1318
+offset_bottom = -22.0807
+text = "baker"
+
+[node name="Hands" type="Node2D" parent="."]
+position = Vector2(0, -20)
+
+[node name="Enemy" type="Area2D" parent="." groups=["bread"]]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("CircleShape2D_61th3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+self_modulate = Color(0.435294, 0, 0.592157, 1)
+texture = ExtResource("2_6jyht")
+
+[node name="View" type="Node2D" parent="Enemy"]
+
+[node name="Sprite" type="Sprite2D" parent="Enemy/View"]
+self_modulate = Color(1, 0.643137, 1, 0.490196)
+position = Vector2(52.0549, -3.12429)
+rotation = 1.5708
+scale = Vector2(1.42014, 1.37672)
+texture = ExtResource("3_x0sxq")
+
+[node name="ViewArea2D" type="Area2D" parent="Enemy/View"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Enemy/View/ViewArea2D"]
+position = Vector2(5.99203, -0.309025)
+polygon = PackedVector2Array(0, 0, 75.1467, -37.9207, 94.0813, -0.846672, 76.0134, 37.1343)
+
+[node name="ReparentTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="Enemy" to="." method="_on_enemy_area_entered"]
+[connection signal="body_entered" from="Enemy/View/ViewArea2D" to="." method="_on_view_area_2d_body_entered"]
+[connection signal="timeout" from="ReparentTimer" to="." method="_on_reparent_timer_timeout"]

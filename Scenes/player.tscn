@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://px2ltqu06jxu"]
+
+[ext_resource type="Script" path="res://Scenes/CharacterBody2D.gd" id="1_2xagw"]
+[ext_resource type="Texture2D" uid="uid://bsdws5cjxhhn7" path="res://Art/Circle.png" id="2_ws2in"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1m1e"]
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(635, 328)
+collision_layer = 4
+script = ExtResource("1_2xagw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h1m1e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 0.999985)
+scale = Vector2(0.666015, 0.682262)
+texture = ExtResource("2_ws2in")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -40.5396
+offset_top = -38.1085
+offset_right = 54.4604
+offset_bottom = -12.1085
+text = "the unbaker"

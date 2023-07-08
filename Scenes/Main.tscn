@@ -1,0 +1,224 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1fej2wdjqple"]
+
+[ext_resource type="PackedScene" uid="uid://px2ltqu06jxu" path="res://Scenes/player.tscn" id="2_0p75x"]
+[ext_resource type="PackedScene" uid="uid://bb56aoq13b8n5" path="res://Scenes/bread.tscn" id="3_fe3x7"]
+[ext_resource type="TileSet" uid="uid://c3s21jqcofd5w" path="res://Tiles/InteriorTileset.tres" id="3_uwdll"]
+[ext_resource type="PackedScene" uid="uid://b8ixw1juy1ndo" path="res://Scenes/oven.tscn" id="5_mnpwx"]
+[ext_resource type="PackedScene" uid="uid://cysns1oqf7fhs" path="res://Scenes/counter.tscn" id="5_tj5oy"]
+[ext_resource type="PackedScene" uid="uid://c5h3qyvyrnson" path="res://Scenes/baker.tscn" id="6_pksi6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_70vwt"]
+vertices = PackedVector2Array(975, 52, 975, 120, 973, 115, 957, 52, 979, 482, 896, 477, 66, 325, 37, 318, 41, 58, 898, 528, 68, 526, 69, 491, 197, 484, 196, 448, 102, 448, 66, 374, 97, 482, 38, 482, 35, 378)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5, 6, 7, 8), PackedInt32Array(5, 9, 10, 11, 12), PackedInt32Array(5, 12, 13), PackedInt32Array(6, 5, 13), PackedInt32Array(6, 13, 14, 15), PackedInt32Array(14, 16, 17, 18, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(41, 58, 957, 52, 975, 52, 975, 120, 973, 115, 979, 482, 896, 477, 898, 528, 68, 526, 69, 491, 197, 484, 196, 448, 102, 448, 97, 482, 38, 482, 35, 378, 66, 374, 66, 325, 37, 318)])
+
+[sub_resource type="Curve2D" id="Curve2D_uqnf4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 74, 60, 0, 0, 0, 0, 869, 101, 0, 0, 0, 0, 910, 227, 0, 0, 0, 0, 591, 226, 0, 0, 0, 0, 919, 418, 0, 0, 0, 0, 919, 420, 0, 0, 0, 0, 881, 491, 0, 0, 0, 0, 529, 493, 0, 0, 0, 0, 204, 499, 0, 0, 0, 0, 211, 380, 0, 0, 0, 0, 86, 369, 0, 0, 0, 0, 210, 219, 0, 0, 0, 0, 560, 223, 0, 0, 0, 0, 143, 217, 0, 0, 0, 0, 126, 276, 0, 0, 0, 0, 46, 253, 0, 0, 0, 0, 46, 253, 0, 0, 0, 0, 48, 77, 0, 0, 0, 0, 48, 77, 0, 0, 0, 0, 58, 64)
+}
+point_count = 20
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_0p75x")]
+
+[node name="Tiles" type="TileMap" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(2, 3)
+tile_set = ExtResource("3_uwdll")
+cell_quadrant_size = 32
+format = 2
+layer_0/name = "Collision"
+layer_0/tile_data = PackedInt32Array(262146, 327680, 6, 327682, 327680, 5, 393218, 327680, 6, 262147, 327680, 6, 327683, 327680, 5, 393219, 327680, 6, 327684, 458752, 0, 327685, 458752, 1, 327686, 524288, 2, 327687, 524288, 1, 327688, 524288, 2, 327689, 524288, 2, 327690, 524288, 2, 327691, 458752, 1, 327692, 524288, 0, 327693, 458752, 1, 327694, 524288, 2, 327695, 524288, 1, 327696, 458752, 2, 327697, 458752, 1, 327698, 524288, 0, 327699, 524288, 2, 327700, 458752, 0, 327701, 524288, 0, 327702, 458752, 1, 327703, 458752, 0, 327704, 524288, 2, 327705, 458752, 0, 327706, 524288, 6, 196611, 327680, 5, 196612, 589824, 5, 196613, 589824, 5, 196614, 589824, 5, 196615, 589824, 5, 196616, 589824, 5, 196617, 589824, 5, 196618, 589824, 5, 196619, 589824, 5, 196620, 589824, 5, 196621, 589824, 5, 196622, 589824, 5, 196623, 589824, 5, 196624, 589824, 5, 196625, 589824, 5, 196626, 589824, 5, 196627, 589824, 5, 196628, 589824, 5, 196629, 589824, 5, 196630, 589824, 5, 196631, 589824, 5, 196632, 589824, 5, 196633, 589824, 5, 196634, 458752, 4, 262170, 458752, 5, 196610, 327680, 5, 524294, 327680, 5, 589830, 327680, 6, 0, 983040, 5, 65536, 983040, 6, 2, 786432, 12, 3, 786432, 0, 65539, 786432, 1, 4, 589824, 0, 65540, 589824, 1, 5, 655360, 0, 65541, 655360, 1, 6, 720896, 0, 65542, 720896, 1, 7, 786432, 0, 65543, 786432, 1, 8, 589824, 0, 65544, 589824, 1, 9, 655360, 0, 65545, 655360, 1, 10, 720896, 0, 65546, 720896, 1, 11, 786432, 0, 65547, 786432, 1, 12, 589824, 0, 65548, 589824, 1, 13, 655360, 0, 65549, 655360, 1, 14, 720896, 0, 65550, 720896, 1, 15, 786432, 0, 65551, 786432, 1, 16, 589824, 0, 65552, 589824, 1, 17, 655360, 0, 65553, 655360, 1, 18, 720896, 0, 65554, 720896, 1, 19, 786432, 0, 65555, 786432, 1, 20, 589824, 0, 65556, 589824, 1, 21, 655360, 0, 65557, 655360, 1, 22, 720896, 0, 65558, 720896, 1, 23, 786432, 0, 65559, 786432, 1, 24, 589824, 0, 65560, 589824, 1, 25, 655360, 0, 65561, 655360, 1, 26, 720896, 0, 65562, 720896, 1, 27, 786432, 0, 65563, 786432, 1, 28, 786432, 12, 65564, 786432, 13, 29, 786432, 12, 65565, 786432, 13, 30, 983040, 5, 65566, 983040, 6, 31, 786432, 0, 65567, 786432, 1, 1114111, 851968, 0, 1048576, 983040, 5, 1048577, 983040, 0, 1048578, 851968, 0, 1048579, 917504, 0, 1048580, 983040, 0, 1048581, 851968, 0, 1048582, 917504, 0, 1048583, 983040, 0, 1048584, 851968, 0, 1048585, 917504, 0, 1048586, 983040, 0, 1048587, 851968, 0, 1048588, 917504, 0, 1048589, 983040, 0, 1048590, 851968, 0, 1048591, 917504, 0, 1048592, 983040, 0, 1048593, 851968, 0, 1048594, 917504, 0, 1048595, 983040, 0, 1048596, 851968, 0, 1048597, 917504, 0, 1048598, 983040, 0, 1048599, 851968, 0, 1048600, 917504, 0, 1048601, 983040, 0, 1048602, 851968, 0, 1048603, 917504, 0, 1048604, 983040, 0, 1048605, 851968, 0, 1048606, 983040, 5, 1048607, 983040, 5, 1114143, 983040, 6, 1114142, 983040, 6, 1114141, 983040, 13, 1114140, 983040, 13, 1114139, 983040, 13, 1114138, 983040, 13, 1114137, 983040, 13, 1114136, 983040, 13, 1114135, 983040, 13, 1114134, 983040, 13, 1114133, 983040, 13, 1114132, 983040, 13, 1114131, 983040, 13, 1114130, 983040, 13, 1114129, 983040, 13, 1114128, 983040, 13, 1114127, 983040, 13, 1114126, 983040, 13, 1114125, 983040, 13, 1114124, 983040, 13, 1114123, 983040, 13, 1114122, 983040, 13, 1114121, 983040, 13, 1114120, 983040, 13, 1114119, 983040, 13, 1114118, 983040, 13, 1114117, 983040, 13, 1114116, 983040, 13, 1114115, 983040, 13, 1114114, 983040, 13, 1114113, 983040, 13, 1114112, 983040, 6, 1179647, 983040, 13, 131102, 983040, 5, 196638, 983040, 6, 262174, 983040, 5, 327710, 983040, 6, 393246, 983040, 5, 458782, 983040, 6, 524318, 983040, 5, 589854, 983040, 6, 655391, 983040, 5, 720927, 983040, 6, 786463, 983040, 5, 851999, 983040, 6, 917535, 983040, 5, 983071, 983040, 6, 917534, 983040, 5, 983070, 983040, 6, 786462, 983040, 5, 851998, 983040, 6, 655390, 983040, 5, 720926, 983040, 6, 131072, 983040, 5, 196608, 983040, 6, 262144, 983040, 5, 327680, 983040, 6, 393216, 983040, 5, 458752, 983040, 6, 524288, 983040, 5, 589824, 983040, 6, 655360, 983040, 5, 720896, 983040, 6, 786432, 983040, 5, 851968, 983040, 6, 917504, 983040, 5, 983040, 983040, 6, 655389, 786432, 10, 983041, 524288, 6, 917508, 524288, 6, 917507, 524288, 6, 917509, 458752, 6, 983069, 262144, 2, 983068, 262144, 2, 196637, 786432, 10, 262173, 786432, 11, 327709, 786432, 12, 393245, 786432, 13, 524289, 786432, 10, 589825, 786432, 11, 655361, 786432, 12, 720897, 786432, 13, 720925, 786432, 11, 786461, 786432, 12, 851997, 786432, 13, -131071, 786432, 10, -65535, 786432, 11, 1, 786432, 12, 65537, 786432, 13, -131070, 786432, 10, -65534, 786432, 11, 65538, 786432, 13, -131043, 786432, 10, -65507, 786432, 11, -131044, 786432, 10, -65508, 786432, 11, 720907, 720896, 6, 589849, 786432, 12, 589852, 720896, 6, 720908, 786432, 10, 786444, 786432, 11, 851980, 786432, 12, 917516, 786432, 13, 720909, 786432, 10, 786445, 786432, 11, 851981, 786432, 12, 917517, 786432, 13, 720910, 786432, 10, 786446, 786432, 11, 851982, 786432, 12, 917518, 786432, 13, 458777, 786432, 10, 524313, 786432, 11, 655385, 786432, 13)
+
+[node name="Counters" type="Node" parent="."]
+
+[node name="Counter" parent="Counters" instance=ExtResource("5_tj5oy")]
+
+[node name="Counter2" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(541, 177)
+
+[node name="Counter14" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(404, 178)
+
+[node name="Counter15" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(440, 178)
+
+[node name="Counter16" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(293, 180)
+
+[node name="Counter17" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(329, 180)
+
+[node name="Counter18" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(155, 180)
+
+[node name="Counter19" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(191, 180)
+
+[node name="Counter20" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(205, 538)
+
+[node name="Counter21" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(241, 538)
+
+[node name="Counter22" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(798, 532)
+
+[node name="Counter23" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(834, 532)
+
+[node name="Counter3" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(572, 528)
+
+[node name="Counter9" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(653, 526)
+
+[node name="Counter10" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(308, 530)
+
+[node name="Counter11" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(979, 87)
+
+[node name="Counter12" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(978, 267)
+
+[node name="Counter13" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(426, 527)
+
+[node name="Counter4" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(307, 115)
+
+[node name="Counter5" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(370, 114)
+
+[node name="Counter6" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(479, 116)
+
+[node name="Counter7" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(590, 116)
+
+[node name="Counter8" parent="Counters" instance=ExtResource("5_tj5oy")]
+position = Vector2(659, 117)
+
+[node name="Ovens" type="Node" parent="."]
+
+[node name="Oven" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(944, 197)
+
+[node name="Oven9" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(821, 324)
+
+[node name="Oven10" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(432, 456)
+
+[node name="Oven11" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(467, 455)
+
+[node name="Oven2" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(942, 429)
+
+[node name="Oven3" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(914, 39)
+
+[node name="Oven8" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(403, 455)
+
+[node name="Oven4" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(947, 37)
+
+[node name="Oven5" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(83, 43)
+
+[node name="Oven6" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(45, 42)
+
+[node name="Oven7" parent="Ovens" instance=ExtResource("5_mnpwx")]
+position = Vector2(51, 356)
+
+[node name="Bread" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(244, 180)
+
+[node name="Bread2" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(210, 112)
+is_dough = true
+
+[node name="Bread3" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(518, 116)
+is_dough = true
+
+[node name="Bread5" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(261, 114)
+is_dough = true
+
+[node name="Bread6" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(740, 174)
+is_dough = true
+
+[node name="Bread7" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(514, 535)
+is_dough = true
+
+[node name="Bread8" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(357, 536)
+is_dough = true
+
+[node name="Bread9" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(366, 182)
+is_dough = true
+
+[node name="Bread10" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(884, 530)
+is_dough = true
+
+[node name="Bread4" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(669, 175)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 444.0
+offset_right = 950.0
+offset_bottom = 522.0
+text = "WASD or arrows - move
+touch all the bread
+don't get caught"
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_70vwt")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_uqnf4")
+
+[node name="Baker" parent="Path2D" instance=ExtResource("6_pksi6")]
+
+[node name="Baker2" parent="Path2D" instance=ExtResource("6_pksi6")]
+position = Vector2(732.618, 491.843)
+rotation = 3.13591
+progress = 1858.54
+
+[node name="Bread5" parent="Path2D/Baker2/Hands" index="0" groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(1.42029, 54.8517)
+rotation = -3.13591
+
+[connection signal="body_entered" from="Bread" to="Bread" method="_on_body_entered"]
+[connection signal="body_entered" from="Bread2" to="Bread2" method="_on_body_entered"]
+[connection signal="body_entered" from="Bread3" to="Bread3" method="_on_body_entered"]
+[connection signal="body_entered" from="Bread5" to="Bread5" method="_on_body_entered"]
+[connection signal="body_entered" from="Bread6" to="Bread6" method="_on_body_entered"]
+[connection signal="body_entered" from="Bread7" to="Bread7" method="_on_body_entered"]
+[connection signal="body_entered" from="Bread8" to="Bread8" method="_on_body_entered"]
+[connection signal="body_entered" from="Bread9" to="Bread9" method="_on_body_entered"]
+[connection signal="body_entered" from="Bread10" to="Bread10" method="_on_body_entered"]
+[connection signal="body_entered" from="Bread4" to="Bread4" method="_on_body_entered"]
+[connection signal="body_entered" from="Path2D/Baker2/Hands/Bread5" to="Path2D/Baker2/Hands/Bread5" method="_on_body_entered"]
+
+[editable path="Path2D/Baker2"]
