@@ -73,6 +73,7 @@ func get_bread_from_hands():
 func _on_view_area_2d_body_entered(_body):
 	# react to seeing player
 	print("saw player")
+	$"../../UI/LoseText".visible = true
 
 
 func _on_reparent_timer_timeout():

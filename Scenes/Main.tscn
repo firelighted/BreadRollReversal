@@ -178,18 +178,33 @@ position = Vector2(669, 175)
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 768.0
-offset_top = 444.0
-offset_right = 950.0
-offset_bottom = 522.0
+offset_left = 506.0
+offset_top = 378.0
+offset_right = 862.0
+offset_bottom = 456.0
 text = "WASD or arrows - move
-touch all the bread
+touch all the yellow bread to unbake it to blue
 don't get caught"
+
+[node name="LoseText" type="Label" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 52.0
+offset_top = 112.0
+offset_right = 350.0
+offset_bottom = 228.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+text = "YOU GOT CAUGHT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
@@ -201,7 +216,7 @@ curve = SubResource("Curve2D_uqnf4")
 [node name="Baker" parent="Path2D" instance=ExtResource("6_pksi6")]
 
 [node name="Baker2" parent="Path2D" instance=ExtResource("6_pksi6")]
-position = Vector2(732.618, 491.843)
+position = Vector2(732.617, 491.843)
 rotation = 3.13591
 progress = 1858.54
 
