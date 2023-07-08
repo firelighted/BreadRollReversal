@@ -81,10 +81,10 @@ position = Vector2(653, 526)
 position = Vector2(308, 530)
 
 [node name="Counter11" parent="Counters" instance=ExtResource("5_tj5oy")]
-position = Vector2(979, 87)
+position = Vector2(946, 114)
 
 [node name="Counter12" parent="Counters" instance=ExtResource("5_tj5oy")]
-position = Vector2(978, 267)
+position = Vector2(913, 302)
 
 [node name="Counter13" parent="Counters" instance=ExtResource("5_tj5oy")]
 position = Vector2(426, 527)
@@ -166,6 +166,9 @@ position = Vector2(366, 182)
 [node name="Bread10" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(884, 530)
 
+[node name="Bread11" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
+position = Vector2(609, 534)
+
 [node name="Bread4" parent="." groups=["bread"] instance=ExtResource("3_fe3x7")]
 position = Vector2(669, 175)
 
@@ -237,10 +240,6 @@ position = Vector2(732.617, 491.843)
 rotation = 3.13591
 progress = 1858.54
 
-[node name="Bread5" parent="Path2D/Baker2/Hands" index="0" groups=["bread"] instance=ExtResource("3_fe3x7")]
-position = Vector2(1.42029, 54.8517)
-rotation = -3.13591
-
 [connection signal="body_entered" from="Bread" to="Bread" method="_on_body_entered"]
 [connection signal="body_entered" from="Bread2" to="Bread2" method="_on_body_entered"]
 [connection signal="body_entered" from="Bread3" to="Bread3" method="_on_body_entered"]
@@ -250,7 +249,7 @@ rotation = -3.13591
 [connection signal="body_entered" from="Bread8" to="Bread8" method="_on_body_entered"]
 [connection signal="body_entered" from="Bread9" to="Bread9" method="_on_body_entered"]
 [connection signal="body_entered" from="Bread10" to="Bread10" method="_on_body_entered"]
+[connection signal="body_entered" from="Bread11" to="Bread11" method="_on_body_entered"]
 [connection signal="body_entered" from="Bread4" to="Bread4" method="_on_body_entered"]
-[connection signal="body_entered" from="Path2D/Baker2/Hands/Bread5" to="Path2D/Baker2/Hands/Bread5" method="_on_body_entered"]
 
 [editable path="Path2D/Baker2"]
